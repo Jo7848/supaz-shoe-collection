@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className="bg-black text-white px-6 py-4 shadow-md fixed w-full z-50 top-0">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="text-2xl font-bold tracking-wide text-white">
-          Supaz
+          Supaz Shoe collection
         </Link>
 
         {/* Desktop Nav */}

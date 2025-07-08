@@ -20,9 +20,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
         {/* Admin Pages */}
-        <Route path="/admin/dashboard" element={<Dashboard />} />
-        <Route path="/admin/add" element={<AddProduct />} />
-        <Route path="/admin/manage" element={<ManageProducts />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin/add-product" element={<AddProduct />} />
+        <Route path="/admin/manage-products" element={<ManageProducts />} />
       </Routes>
 
       <Footer />
