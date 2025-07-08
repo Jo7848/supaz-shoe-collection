@@ -1,45 +1,44 @@
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
-    <nav className="bg-black text-white shadow-md p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold">
-          Supaz Shoes
+    <nav className="bg-black text-white px-6 py-4 shadow-md fixed w-full z-50 top-0">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <Link to="/" className="text-2xl font-bold tracking-wide text-white">
+          Supaz
         </Link>
-        <ul className="flex space-x-6">
-          <li>
-            <Link to="/" className="hover:text-gray-300">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/products" className="hover:text-gray-300">
-              Products
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="hover:text-gray-300">
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link to="/dashboard" className="hover:text-gray-300">
-              Admin
-            </Link>
-          </li>
-          <li>
-            <Link to="/dashboard/add" className="hover:text-gray-300">
-              Add Product
-            </Link>
-          </li>
-          <li>
-            <Link to="/dashboard/manage" className="hover:text-gray-300">
-              Manage
-            </Link>
-          </li>
-        </ul>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex gap-8 text-lg font-medium">
+          <Link to="/" className="hover:text-gray-300 transition">Home</Link>
+          <Link to="/products" className="hover:text-gray-300 transition">Shoes</Link>
+          <Link to="/contact" className="hover:text-gray-300 transition">Contact</Link>
+          <Link to="/dashboard" className="hover:text-gray-300 transition">Dashboard</Link>
+        </div>
+
+        {/* Mobile Toggle */}
+        <div className="md:hidden">
+          <button onClick={toggleMenu}>
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden flex flex-col mt-4 px-4 space-y-4 bg-black pb-4">
+          <Link to="/" onClick={toggleMenu} className="hover:text-gray-300">Home</Link>
+          <Link to="/products" onClick={toggleMenu} className="hover:text-gray-300">Shoes</Link>
+          <Link to="/contact" onClick={toggleMenu} className="hover:text-gray-300">Contact</Link>
+          <Link to="/dashboard" onClick={toggleMenu} className="hover:text-gray-300">Dashboard</Link>
+        </div>
+      )}
     </nav>
   );
 };
