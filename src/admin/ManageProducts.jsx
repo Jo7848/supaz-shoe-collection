@@ -6,7 +6,7 @@ const ManageProducts = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products", {
+      .get("https://supaz-backend.onrender.com/api/products", {
         headers: {
           Authorization: "Bearer supaz_admin_token",
         },
@@ -17,7 +17,7 @@ const ManageProducts = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/api/products/${id}`, {
+      .delete(`https://supaz-backend.onrender.com/api/products/${id}`, {
         headers: {
           Authorization: "Bearer supaz_admin_token",
         },

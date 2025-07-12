@@ -15,7 +15,7 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/products", product, {
+      await axios.post("https://supaz-backend.onrender.com/api/products", product,{
         headers: {
           Authorization: "Bearer supaz_admin_token",
         },
