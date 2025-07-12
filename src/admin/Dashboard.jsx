@@ -1,21 +1,27 @@
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <div className="w-64 bg-gray-900 text-white p-6">
-        <h2 className="text-2xl font-bold mb-6">Admin Panel</h2>
-        <nav className="flex flex-col gap-4">
-          <Link to="/admin/add-product" className="hover:underline">Add Product</Link>
-          <Link to="/admin/manage-products" className="hover:underline">Manage Products</Link>
-        </nav>
-      </div>
+    <div className="min-h-screen bg-gray-900 text-white p-6 flex items-center justify-center">
+      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md text-center">
+        <h2 className="text-3xl font-bold mb-6 text-yellow-400">Admin Dashboard</h2>
 
-      {/* Main Content */}
-      <div className="flex-1 p-10 bg-gray-100">
-        <h1 className="text-3xl font-semibold">Welcome to the Admin Dashboard</h1>
-        {/* You can add some dashboard summary content here if you want */}
+        <div className="space-y-4">
+          <Link
+            to="/dashboard/add-product"
+            className="block w-full bg-yellow-500 text-black font-semibold py-3 px-4 rounded hover:bg-yellow-600 transition"
+          >
+            ➕ Add Product
+          </Link>
+
+          <Link
+            to="/dashboard/manage-products"
+            className="block w-full bg-yellow-500 text-black font-semibold py-3 px-4 rounded hover:bg-yellow-600 transition"
+          >
+            🛠️ Manage Products
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -11,43 +11,52 @@ const ProductForm = ({ initialData = {}, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-2xl shadow max-w-md mx-auto mt-10">
-      <h2 className="text-2xl font-bold mb-4">Product Details</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="bg-gray-800 p-6 rounded-lg shadow-lg max-w-md w-full mx-auto mt-10 text-white"
+    >
+      <h2 className="text-2xl font-bold mb-6 text-center text-yellow-400">Product Details</h2>
 
-      <label className="block mb-2">
-        Name
+      <label className="block mb-4">
+        <span className="text-gray-300">Product Name</span>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full mt-1 p-2 border rounded-md"
-          required
-        />
-      </label>
-
-      <label className="block mb-2">
-        Price (KES)
-        <input
-          type="number"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          className="w-full mt-1 p-2 border rounded-md"
+          className="mt-1 block w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring focus:ring-yellow-500"
+          placeholder="Enter product name"
           required
         />
       </label>
 
       <label className="block mb-4">
-        Image Path (e.g. `/shoes/titan-flux.jpg`)
+        <span className="text-gray-300">Price (KES)</span>
         <input
-          type="text"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-          className="w-full mt-1 p-2 border rounded-md"
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          className="mt-1 block w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring focus:ring-yellow-500"
+          placeholder="Enter price"
           required
         />
       </label>
 
-      <button type="submit" className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800">
+      <label className="block mb-6">
+        <span className="text-gray-300">Image Path</span>
+        <input
+          type="text"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+          className="mt-1 block w-full p-2 rounded bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring focus:ring-yellow-500"
+          placeholder="/shoes/titan-flux.jpg"
+          required
+        />
+      </label>
+
+      <button
+        type="submit"
+        className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 px-4 rounded transition"
+      >
         Submit
       </button>
     </form>

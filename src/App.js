@@ -1,31 +1,61 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Products from './pages/Products';
-import Contact from './pages/Contact';
-import Dashboard from './admin/Dashboard';
-import AddProduct from './admin/AddProduct';
-import ManageProducts from './admin/ManageProducts';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+// src/App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+
+// Pages
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Products from "./pages/Products";
+import Login from "./pages/Login";
+
+// Admin Pages
+import Dashboard from "./admin/Dashboard";
+import AddProduct from "./admin/AddProduct";
+import ManageProducts from "./admin/ManageProducts";
+
+// Layout
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+// Route Protection
+import RequireAuth from "./utils/RequireAuth"; // from your file
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/login" element={<Login />} />
 
-      <Routes>
-        {/* Public Pages */}
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/contact" element={<Contact />} />
+            {/* Protected Admin Dashboard */}
+            <Route path="/dashboard" element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            } />
+            <Route path="/dashboard/add-product" element={
+              <RequireAuth>
+                <AddProduct />
+              </RequireAuth>
+            } />
+            <Route path="/dashboard/manage-products" element={
+              <RequireAuth>
+                <ManageProducts />
+              </RequireAuth>
+            } />
 
-        {/* Admin Pages */}
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/admin/add-product" element={<AddProduct />} />
-        <Route path="/admin/manage-products" element={<ManageProducts />} />
-      </Routes>
-
-      <Footer />
+            {/* Catch-all for unknown routes */}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }
