@@ -7,7 +7,7 @@ function Contact() {
         WhatsApp:{" "}
         <a
           className="text-green-400 underline"
-          href="https://wa.me/254746631707"
+          href="https://wa.me/254707847789"
           target="_blank"
           rel="noopener noreferrer"
         >

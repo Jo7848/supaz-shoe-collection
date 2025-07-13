@@ -24,9 +24,9 @@ const Products = () => {
         ) : (
           products.map((product) => {
             const encodedMessage = encodeURIComponent(
-              `Hello Supaz! I'm interested in this shoe:\n\n🥿 *${product.name}*\n💰 *Ksh ${product.price}*\n📷 ${product.image}`
+              `Hello David! I'm interested in this shoe:\n\n🥿 *${product.name}*\n💰 *Ksh ${product.price}*\n📷 ${product.image}`
             );
-            const whatsappLink = `https://wa.me/254746631707?text=${encodedMessage}`;
+            const whatsappLink = `https://wa.me/254707847789?text=${encodedMessage}`;
 
             return (
               <div
