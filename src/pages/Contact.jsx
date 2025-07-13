@@ -11,7 +11,7 @@ function Contact() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          +254 746 631 707
+          +254 707847789
         </a>
       </p>
 
