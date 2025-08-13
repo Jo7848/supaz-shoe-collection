@@ -12,7 +12,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (credentials.username === "Supaz" && credentials.password === "Faz1232020") {
+    if (credentials.username === "Cerullo" && credentials.password === "dominion1") {
       localStorage.setItem("isAuthenticated", "true");
       navigate("/dashboard");
     } else {
